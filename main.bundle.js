@@ -324,11 +324,16 @@ var MainComponent = (function () {
             "content-text": 'example site '
         };
         this._bananaBemSite = {
-            imgURL: this._defaultImgURL,
-            url: '/assets/sites/1/index.html',
+            imgURL: "/assets/sites/1/img/bananaBem.png",
+            url: 'https://github.com/artur-lapaev/banana-bem',
             "content-text": 'example site '
         };
-        this._containerOfSites = [this._defaultSite, this._bananaBemSite, this._defaultSite];
+        this._testSite = {
+            imgURL: this._defaultImgURL,
+            url: '/assets/sites/2/index.html',
+            "content-text": 'example site '
+        };
+        this._containerOfSites = [this._bananaBemSite, this._testSite, this._defaultSite];
     }
     MainComponent.prototype.ngOnInit = function () { };
     return MainComponent;
