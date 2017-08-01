@@ -328,12 +328,12 @@ var MainComponent = (function () {
             url: 'https://github.com/artur-lapaev/banana-bem',
             "content-text": 'example site '
         };
-        this._testSite = {
-            imgURL: this._defaultImgURL,
+        this._sigmaSite = {
+            imgURL: "/assets/sites/2/sigma.png",
             url: '/assets/sites/2/index.html',
             "content-text": 'example site '
         };
-        this._containerOfSites = [this._bananaBemSite, this._testSite, this._defaultSite];
+        this._containerOfSites = [this._bananaBemSite, this._sigmaSite, this._defaultSite];
     }
     MainComponent.prototype.ngOnInit = function () { };
     return MainComponent;

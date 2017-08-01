@@ -1,0 +1,15 @@
+.logo {
+    display: flex;
+    justify-content: center;
+    font-weight: 400;
+}
+.logo__text {
+    padding: 20px 0;
+    font-size: 1.5em;
+}
+@media screen and (max-width: 420px) {
+    .logo__text {font-size: 1.2em;}
+}
+@media screen and (max-width: 320px) {
+    .logo__text {font-size: 1em;}
+}
