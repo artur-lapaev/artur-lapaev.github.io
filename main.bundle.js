@@ -325,7 +325,7 @@ var MainComponent = (function () {
         };
         this._bananaBemSite = {
             imgURL: "/assets/sites/1/img/bananaBem.png",
-            url: 'https://github.com/artur-lapaev/banana-bem',
+            url: 'https://bananabem-7967d.firebaseapp.com/',
             "content-text": 'example site '
         };
         this._sigmaSite = {
