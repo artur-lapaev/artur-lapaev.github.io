@@ -80,7 +80,7 @@ exports = module.exports = __webpack_require__(13)();
 exports.i(__webpack_require__(136), "");
 
 // module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\nbody {\n    font-family: \"Philosopher\",\"Tahoma\";\n    /*background-color: #f8f7ef;*/\n    background: url(\"/assets/img/background.png\") no-repeat center center fixed;      \n    background-size: cover;\n}\n \n.loading {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n        -webkit-box-pack: center;\n            -ms-flex-pack: center;\n                justify-content: center;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        height: 100vh;\n        color: white;\n        text-transform: uppercase;\n        font-family: -apple-system,\n        BlinkMacSystemFont,\n        \"Segoe UI\",\n        Roboto,\n        Oxygen-Sans,\n        Ubuntu,\n        Cantarell,\n        Helvetica,\n        sans-serif;\n        font-size: 2.5em;\n        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);\n      }\n     \n", ""]);
+exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n@font-face {\n    font-family: Philosopher;\n    src: url(" + __webpack_require__(169) + ");\n}\nbody {\n    font-family: \"Philosopher\",\"Tahoma\";\n    /*background-color: #f8f7ef;*/\n    background: url(\"/assets/img/background.png\") no-repeat center center fixed;      \n    background-size: cover;\n}\n \n.loading {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n        -webkit-box-pack: center;\n            -ms-flex-pack: center;\n                justify-content: center;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        height: 100vh;\n        color: white;\n        text-transform: uppercase;\n        font-family: -apple-system,\n        BlinkMacSystemFont,\n        \"Segoe UI\",\n        Roboto,\n        Oxygen-Sans,\n        Ubuntu,\n        Cantarell,\n        Helvetica,\n        sans-serif;\n        font-size: 2.5em;\n        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);\n      }\n     \n", ""]);
 
 // exports
 
@@ -340,7 +340,14 @@ function updateLink(linkElement, obj) {
 
 /***/ }),
 
-/***/ 172:
+/***/ 169:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "Philosopher-Regular.4286c83f4bfdc2916e96.ttf";
+
+/***/ }),
+
+/***/ 173:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(73);
@@ -375,5 +382,5 @@ if(false) {
 
 /***/ })
 
-},[172]);
+},[173]);
 //# sourceMappingURL=styles.bundle.js.map
