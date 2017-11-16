@@ -1,9 +1,0 @@
-.header {
-    flex-direction: column;
-    background-color: #f0f0f0;
-    color: #545454;
-}
-
-.header, .logo, .nav {
-    display: flex;
-}
