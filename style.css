@@ -83,22 +83,23 @@ body {
     background-image: url(./assets/img/skills/webpack.png);
 }
 
-.main__contact {
+.main__contact, .main__project {
     display: flex;
     height: 170px;    
     align-items: center;
 }
+.main__contact {height: 100px;}
 .btn {
     border: 0;
 }
-.main__btn-contact { 
+.main__btn-contact, .main__btn-project { 
     background: transparent;
     color: white;
     font-size: 2em;
     border-bottom: 2px solid rgba(255, 255, 255, 0);
     transition: 0.4s border-bottom;
 }
-.main__btn-contact:hover {
+.main__btn-contact:hover, .main__btn-project:hover {
     cursor: pointer;
     border-bottom: 2px solid rgba(255, 255, 255, 1);;
 }
