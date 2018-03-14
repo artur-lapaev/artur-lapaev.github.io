@@ -52,9 +52,7 @@ body {
 .skills__icons {
     display: flex;
 }
-.icons__1, .icons__2,
-.icons__3, .icons__4,
-.icons__5, .icons__6 {
+.icons--pattern {
     display: block;
     width: 70px;
     height: 70px;
@@ -103,4 +101,17 @@ body {
 .main__btn-contact:hover {
     cursor: pointer;
     border-bottom: 2px solid rgba(255, 255, 255, 1);;
+}
+
+@media screen and (min-width: 310px) and (max-width: 850px) {
+    .main__name-author {font-size: 3em;}
+    .main__specialization {font-size: 25px;}
+    .icons--pattern {
+        width: 40px;
+        height: 40px;
+    }
+    .icons__4 {
+        margin-top: 0px;
+        margin-right: 10px;
+    }
 }
