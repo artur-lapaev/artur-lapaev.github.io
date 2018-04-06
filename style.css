@@ -169,12 +169,59 @@ body {
     margin-left: 3px;
     }
 }
-@media screen and (min-width: 359px) and (max-width: 395px) {
+@media screen and (min-width: 434px) and (max-width: 517px) {
+    .main__name-author-background{
+        font-size: 3em;
+        letter-spacing: 9px;
+        }
+    .main__name-author {
+        font-size: 3em;
+        line-height: 0.75;
+    }
+    .main__specialization {
+    font-size: 15px;
+    letter-spacing: 12px;
+    margin-left: 3px;
+    }
+}
+@media screen and (min-width: 400px) and (max-width: 433px) {
+    .main__name-author-background{
+        font-size: 2.7em;
+        letter-spacing: 9px;
+        }
+    .main__name-author {
+        font-size: 3em;
+        line-height: 0.75;
+    }
+    .main__specialization {
+    font-size: 15px;
+    letter-spacing: 12px;
+    margin-left: 3px;
+    }
+}
+@media screen and (min-width: 375px) and (max-width: 399px) {
     .main__name-author-background{
         font-size: 2.4em;
         letter-spacing: 9px;
-        margin-left: 6px;;
+        margin-left: 6px;
         }
+    .main__name-author {
+        font-size: 3em;
+        line-height: 0.75;
+    }
+    .main__specialization {
+    font-size: 15px;
+    margin-left: 3px;
+    }
+}
+@media screen and (min-width: 355px) and (max-width: 374px) {
+    .main__name-author-background{
+        font-size: 2.2em;
+        letter-spacing: 9px;
+        margin-left: 6px;
+        }
+}
+@media screen and (min-width: 359px) and (max-width: 395px) {   
     .main__name-author {
         font-size: 3em;
         line-height: 0.75;
