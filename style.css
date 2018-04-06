@@ -1,15 +1,11 @@
 @font-face {
-    font-family: Microsoft Yi Baiti; 
-    src: url(./assets/fonts/msyi.ttf); 
-}
-@font-face {
-    font-family: Chaparral Pro; 
-    src: url(./assets/fonts/ChaparralPro-Regular.otf);
+    font-family: Ebrima; 
+    src: url(./assets/fonts/ebrima.ttff);
     font-weight: 400;
 }
 @font-face {
-    font-family: Chaparral Pro; 
-    src: url(./assets/fonts/ChaparralPro-Bold.otf);
+    font-family: Ebrima; 
+    src: url(./assets/fonts/ebrimabd.ttf);
     font-weight: bold;
 }
 html, body { height: 100%; }
@@ -20,7 +16,7 @@ body {
     background-origin: content-box;
     background-attachment: fixed;
     color: white;
-    font-family: 'Chaparral Pro';    
+    font-family: 'Ebrima';    
 }
 
 .main {
@@ -30,16 +26,169 @@ body {
     justify-content: center;
     height: inherit;
 }
+.main__name-author-background {
+    font-size: 8em;
+    opacity: 0.14;
+    letter-spacing: 40px;
+    line-height: 0;
+    cursor: default;
+}
 .main__name-author {
-    font-family: 'Microsoft Yi Baiti';
-    font-size: 6em;
-    opacity: 0.85;
+    font-family: 'Ebrima';
+    font-size: 8em;
+    line-height: 0.65;
+    letter-spacing: 2px;
 }
 .main__specialization {
-    font-weight: bold;
-    font-size: 5em;
+    font-size: 4em;
+    letter-spacing: 10px;
+    margin-left: -13px;
 }
-@media screen and (min-width: 310px) and (max-width: 850px) {
-    .main__name-author {font-size: 3em;}
-    .main__specialization {font-size: 25px;}
+.main__social-group {
+    display: flex;
+}
+.icon {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    background-size: cover;
+}
+.icon > a {
+    display: block;
+    width: 50px;
+    height: 50px;
+}
+.icon--github {
+    background-image: url('./assets/img/icon/github.png');    
+}
+.icon--email {
+    background-image: url('./assets/img/icon/mail.png');    
+}
+.icon--skype {
+    background-image: url('./assets/img/icon/skype.png');    
+}
+.icon--vk {
+    background-image: url('./assets/img/icon/vk.png');    
+}
+@media screen and (min-width: 1228px) and (max-width: 1347px) {
+    .main__name-author-background{
+    letter-spacing: 30px;
+    }
+}
+@media screen and (min-width: 1168px) and (max-width: 1227px) {
+    .main__name-author-background{
+        letter-spacing: 25px;
+    }
+}
+@media screen and (min-width: 1059px) and (max-width: 1167px) {
+    .main__name-author-background{
+        font-size: 7em;
+        letter-spacing: 25px;
+    }
+}
+@media screen and (min-width: 999px) and (max-width: 1058px) {
+    .main__name-author-background{
+        font-size: 7em;
+        letter-spacing: 20px;
+    }
+}
+@media screen and (min-width: 967px) and (max-width: 998px) {
+    .main__name-author-background{
+        font-size: 6.8em;
+        letter-spacing: 18px;
+        margin-left: 15px;
+    }
+}
+@media screen and (min-width: 571px) and (max-width: 890px) {
+    .main__name-author-background{
+        font-size: 6em;
+        letter-spacing: 7px;
+    }
+    .main__name-author {font-size: 5em;}
+    .main__specialization {
+    font-size: 2em;
+    letter-spacing: 11px;
+    margin-left: -10px;
+    }
+}
+@media screen and (min-width: 671px) and (max-width: 732px) {
+    .main__name-author-background{
+        font-size: 5em;
+        letter-spacing: 7px;
+    }
+}
+@media screen and (min-width: 440px) and (max-width: 670px) {
+    .main__name-author-background{
+        font-size: 4em;
+        letter-spacing: 7px;
+    }
+}
+@media screen and (min-width: 396px) and (max-width: 439px) {
+    .main__name-author-background{
+    font-size: 3em;
+    letter-spacing: 6px;
+    }
+}
+@media screen and (min-width: 396px) and (max-width: 570px) {
+    .main__name-author {
+        font-size: 3em;
+        line-height: 0.75;
+    }
+    .main__specialization {
+    font-size: 15px;
+    letter-spacing: 12px;
+    margin-left: 3px;
+    }
+}
+@media screen and (min-width: 359px) and (max-width: 395px) {
+    .main__name-author-background{
+        font-size: 2.4em;
+        letter-spacing: 9px;
+        margin-left: 6px;;
+        }
+    .main__name-author {
+        font-size: 3em;
+        line-height: 0.75;
+    }
+    .main__specialization {
+    font-size: 15px;
+    margin-left: 3px;
+    }
+}
+@media screen and (min-width: 350px) and (max-width: 358px) {
+    .main__name-author {
+        font-size: 3em;
+        line-height: 0.75;
+    }
+    .main__specialization {
+        font-size: 14px;
+        margin-left: -1px;
+    }
+}
+@media screen and (min-width: 310px) and (max-width: 349px) {
+    .main__name-author-background{
+        font-size: 2em;
+        letter-spacing: 5px;
+        }
+    .main__name-author {
+        font-size: 2em;
+        line-height: 0.75;
+    }
+    .main__specialization {
+        font-size: 9px;
+        margin-left: -1px;
+    }
+}
+@media screen and (min-width: 310px) and (max-width: 379px) {
+    .icon {
+        width: 30px;
+        height: 30px;
+        margin: 10px;
+        background-size: cover;
+    }
+    .icon > a {
+        display: block;
+        width: 30px;
+        height: 30px;
+    }
 }
