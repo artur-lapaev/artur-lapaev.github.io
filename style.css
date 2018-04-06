@@ -18,7 +18,32 @@ body {
     color: white;
     font-family: 'Ebrima';    
 }
-
+@keyframes lightning{
+    0% {
+        opacity: 0.14;
+    }
+    50% {
+        opacity: 0;
+    }
+    55% {
+        opacity: 1;
+    }
+    56% {
+        opacity: 0;
+    }
+    57% {
+        opacity: 1;
+    }
+    58% {
+        opacity: 0;
+    }
+    59% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.14;
+    }
+}
 .main {
     display: flex;
     flex-direction: column;
@@ -32,6 +57,10 @@ body {
     letter-spacing: 40px;
     line-height: 0;
     cursor: default;
+    animation-name: lightning;
+    animation-duration: 15s;
+    animation-timing-function: cubic-bezier(.77,.97,.24,1);
+    animation-iteration-count: infinite;
 }
 .main__name-author {
     font-family: 'Ebrima';
