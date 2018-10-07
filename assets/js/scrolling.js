@@ -78,12 +78,16 @@
         }, false);
     } else {
         let startX,
+            startY,
             threshold = 150,
-            dist;
+            distX,
+            distY;
         document.body.addEventListener("touchstart", (e) => {
             let touchobj = e.changedTouches[0];
-            dist = 0;
+            distX = 0;
+            distY = 0;
             startX = touchobj.pageX;
+            startY = touchobj.pageY;
             e.preventDefault();
         }, false);
         document.body.addEventListener("touchmove", (e) => {
@@ -91,10 +95,13 @@
         }, false);
         document.body.addEventListener("touchend", (e) => {
             let touchobj = e.changedTouches[0];
-            dist = touchobj.pageX - startX;
-            console.log("dist:", dist);
-            console.log("treshold", threshold);
-            if (dist >= threshold || dist < threshold && dist !== 0) {
+            console.log(touchobj)
+            distX = touchobj.pageX - startX;
+            distY = touchobj.pageY - startY;
+            // console.log("distx:", distX);
+            // console.log("disty:", distY);
+            // console.log("treshold", threshold);
+            if (distY < 40 && distY > -50 && distX !== 0) {
 
                 document.body.style.backgroundImage = "url()";
                 let findElem = document.querySelector(".image-div");
