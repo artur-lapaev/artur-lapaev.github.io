@@ -4,7 +4,7 @@
     let number = 1;
     let item = 0;
     let numberPage = document.querySelector(".header__number-page");
-    let oldSrc = ["url(./assets/img/about.jpg)"];    
+    let oldSrc = ["url(./assets/img/about.jpg)"];
     //checking desktop or tablet or phone
     let typeDevice = window.navigator.userAgent;
     let typeEvent = "";
@@ -20,9 +20,9 @@
     }
     if (mobile > osLinux) {
         typeEvent = "touchend";
-    } 
-    
-    if (typeEvent === "whell") {        
+    }
+
+    if (typeEvent === "whell") {
         document.body.addEventListener("wheel", () => {
             document.body.style.backgroundImage = "url()";
             let findElem = document.querySelector(".image-div");
@@ -31,7 +31,7 @@
                 document.body.removeChild(findElem);
                 document.body.removeChild(findOldElem);
             }
-    
+
             let createElemForBG = document.createElement("div");
             createElemForBG.setAttribute("class", "image-div");
             createElemForBG.style.backgroundImage = `url(./assets/img/${arrayImg[number]}.jpg)`;
@@ -43,62 +43,7 @@
                 item++;
             }
             document.body.appendChild(createElemForBG);
-    
-            let createOldElement = document.createElement("div");
-            createOldElement.setAttribute("class", "image-div-old");
-            for (let i = 0; i < 11; i++) {
-                let createElement = document.createElement("div");
-                createElement.setAttribute("class", "part");
-                createElement.style.backgroundImage = oldSrc[item - 1];                
-                createOldElement.appendChild(createElement);
-            }
-            document.body.appendChild(createOldElement);
-    
-            let findAllPartElement = document.querySelectorAll(".part");
-            let allPartElement = findAllPartElement;
-    
-            randomSwitchHeight(allPartElement);
-    
-            numberPage.innerHTML = "" + (number + 1);
-    
-            if (number >= arrayImg.length - 1) {
-                number = 0;
-                if (oldSrc.length >= 5) {
-                    oldSrc = ["url(./assets/img/about.jpg)"];
-                    item = 0;
-                }
-            } else {
-                number++;
-                if (oldSrc.length >= 5) {
-                    oldSrc = ["url(./assets/img/about.jpg)"];
-                    item = 0;
-                }
-            }
-    
-        }, false);
-    } else {       
-        document.body.addEventListener("touchend", () => {
-            
-            document.body.style.backgroundImage = "url()";
-            let findElem = document.querySelector(".image-div");
-            let findOldElem = document.querySelector(".image-div-old");
-            if (findElem !== null && findOldElem !== null) {
-                document.body.removeChild(findElem);
-                document.body.removeChild(findOldElem);
-            }
-    
-            let createElemForBG = document.createElement("div");
-            createElemForBG.setAttribute("class", "image-div");
-            createElemForBG.style.backgroundImage = `url(./assets/img/${arrayImg[number]}.jpg)`;
-            let currentSrc = createElemForBG.style.backgroundImage;
-            if (oldSrc.length == 0 && oldSrc[item] !== currentSrc) {
-                oldSrc.push(createElemForBG.style.backgroundImage);
-            } else {
-                oldSrc.push(createElemForBG.style.backgroundImage);
-                item++;
-            }
-            document.body.appendChild(createElemForBG);
-    
+
             let createOldElement = document.createElement("div");
             createOldElement.setAttribute("class", "image-div-old");
             for (let i = 0; i < 11; i++) {
@@ -108,14 +53,14 @@
                 createOldElement.appendChild(createElement);
             }
             document.body.appendChild(createOldElement);
-    
+
             let findAllPartElement = document.querySelectorAll(".part");
             let allPartElement = findAllPartElement;
-    
+
             randomSwitchHeight(allPartElement);
-    
+
             numberPage.innerHTML = "" + (number + 1);
-    
+
             if (number >= arrayImg.length - 1) {
                 number = 0;
                 if (oldSrc.length >= 5) {
@@ -129,7 +74,81 @@
                     item = 0;
                 }
             }
-    
+
+        }, false);
+    } else {
+        let startX,
+            threshold = 150,
+            dist;
+        document.body.addEventListener("touchstart", (e) => {
+            let touchobj = e.changedTouches[0];
+            dist = 0;
+            startX = touchobj.pageX;
+            e.preventDefault();
+        }, false);
+        document.body.addEventListener("touchmove", (e) => {
+            e.preventDefault();
+        }, false);
+        document.body.addEventListener("touchend", (e) => {
+            let touchobj = e.changedTouches[0];
+            dist = touchobj.pageX - startX;
+            console.log("dist:", dist);
+            console.log("treshold", threshold);
+            if (dist >= threshold || dist < threshold && dist !== 0) {
+
+                document.body.style.backgroundImage = "url()";
+                let findElem = document.querySelector(".image-div");
+                let findOldElem = document.querySelector(".image-div-old");
+                if (findElem !== null && findOldElem !== null) {
+                    document.body.removeChild(findElem);
+                    document.body.removeChild(findOldElem);
+                }
+
+                let createElemForBG = document.createElement("div");
+                createElemForBG.setAttribute("class", "image-div");
+                createElemForBG.style.backgroundImage = `url(./assets/img/${arrayImg[number]}.jpg)`;
+                let currentSrc = createElemForBG.style.backgroundImage;
+                if (oldSrc.length == 0 && oldSrc[item] !== currentSrc) {
+                    oldSrc.push(createElemForBG.style.backgroundImage);
+                } else {
+                    oldSrc.push(createElemForBG.style.backgroundImage);
+                    item++;
+                }
+                document.body.appendChild(createElemForBG);
+
+                let createOldElement = document.createElement("div");
+                createOldElement.setAttribute("class", "image-div-old");
+                for (let i = 0; i < 11; i++) {
+                    let createElement = document.createElement("div");
+                    createElement.setAttribute("class", "part");
+                    createElement.style.backgroundImage = oldSrc[item - 1];
+                    createOldElement.appendChild(createElement);
+                }
+                document.body.appendChild(createOldElement);
+
+                let findAllPartElement = document.querySelectorAll(".part");
+                let allPartElement = findAllPartElement;
+
+                randomSwitchHeight(allPartElement);
+
+                numberPage.innerHTML = "" + (number + 1);
+
+                if (number >= arrayImg.length - 1) {
+                    number = 0;
+                    if (oldSrc.length >= 5) {
+                        oldSrc = ["url(./assets/img/about.jpg)"];
+                        item = 0;
+                    }
+                } else {
+                    number++;
+                    if (oldSrc.length >= 5) {
+                        oldSrc = ["url(./assets/img/about.jpg)"];
+                        item = 0;
+                    }
+                }
+            }
+
+            e.preventDefault();
         }, false);
     }
 
