@@ -5,14 +5,19 @@
     let item = 0;
     let numberPage = document.querySelector(".header__number-page");
     let oldSrc = ["url(./assets/img/about.jpg)"];
-    let widthWindowDiveded = (document.body.clientWidth / 11);
+    let currentWidth;
+    let widthWindowDiveded = (currentWidth / 11);
     //checking desktop or tablet or phone
     let typeDevice = window.navigator.userAgent;
     let typeEvent = "";
     let osLinux = typeDevice.indexOf("Linux");
     let osWindows = typeDevice.indexOf("Windows");
     let mobile = typeDevice.indexOf("Mobile");
-    
+
+    if (!widthWindowDiveded) {
+        widthWindowDiveded = (document.body.clientWidth /11);
+    }
+
     if (osLinux) {
         typeEvent = "whell";
     }
@@ -22,9 +27,8 @@
     if (mobile > osLinux) {
         typeEvent = "touchend";
     } 
-
-    if (typeEvent === "whell") {
-        
+    
+    if (typeEvent === "whell") {        
         document.body.addEventListener("wheel", () => {
             document.body.style.backgroundImage = "url()";
             let findElem = document.querySelector(".image-div");
@@ -146,6 +150,10 @@
         }, false);
     }
     
+    window.addEventListener("orientationchange", function() {
+        currentWidth = screen.width;
+    });
+
     function randomSwitchHeight(elems) {
         let ements = elems;
         let animate = ["pyramid", "topLeft", "topRight", "bottomPyramid"];
