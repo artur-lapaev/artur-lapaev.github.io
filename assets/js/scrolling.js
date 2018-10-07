@@ -5,8 +5,8 @@
     let item = 0;
     let numberPage = document.querySelector(".header__number-page");
     let oldSrc = ["url(./assets/img/about.jpg)"];
-    let currentWidth;
-    let widthWindowDiveded = (currentWidth / 11);
+    
+    let widthWindowDiveded = (window.innerWidth / 11);
     //checking desktop or tablet or phone
     let typeDevice = window.navigator.userAgent;
     let typeEvent = "";
@@ -88,7 +88,7 @@
             }
     
         }, false);
-    } else {
+    } else {       
         document.body.addEventListener("touchend", () => {
             document.body.style.backgroundImage = "url()";
             let findElem = document.querySelector(".image-div");
@@ -149,9 +149,12 @@
     
         }, false);
     }
-    
+    console.log(window);
     window.addEventListener("orientationchange", function() {
-        currentWidth = screen.width;
+        
+         window.innerWidth = screen.width;
+        alert(window.innerWidth)
+        
     });
 
     function randomSwitchHeight(elems) {
