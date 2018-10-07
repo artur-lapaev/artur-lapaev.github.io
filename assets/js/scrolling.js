@@ -16,8 +16,9 @@
     } else if (typeDevice.indexOf("Mobile")) {
         typeEvent = "touchend";
     }
-
+    alert(typeDevice);
     if (typeEvent === "whell") {
+        
         document.body.addEventListener("wheel", () => {
             document.body.style.backgroundImage = "url()";
             let findElem = document.querySelector(".image-div");
