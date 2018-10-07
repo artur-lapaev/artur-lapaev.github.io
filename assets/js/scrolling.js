@@ -9,14 +9,20 @@
     //checking desktop or tablet or phone
     let typeDevice = window.navigator.userAgent;
     let typeEvent = "";
-    if (typeDevice.indexOf("Linux")) {
+    let osLinux = typeDevice.indexOf("Linux");
+    let osWindows = typeDevice.indexOf("Windows");
+    let mobile = typeDevice.indexOf("Mobile");
+    
+    if (osLinux) {
         typeEvent = "whell";
-    } else if (typeDevice.indexOf("Windows")) {
-        typeEvent = "whell";
-    } else if (typeDevice.indexOf("Mobile")) {
-        typeEvent = "touchend";
     }
-    alert(typeDevice);
+    if (osWindows) {
+        typeEvent = "whell";
+    }
+    if (mobile > osLinux) {
+        typeEvent = "touchend";
+    } 
+
     if (typeEvent === "whell") {
         
         document.body.addEventListener("wheel", () => {
