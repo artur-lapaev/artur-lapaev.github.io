@@ -4,19 +4,13 @@
     let number = 1;
     let item = 0;
     let numberPage = document.querySelector(".header__number-page");
-    let oldSrc = ["url(./assets/img/about.jpg)"];
-    
-    let widthWindowDiveded = (window.innerWidth / 11);
+    let oldSrc = ["url(./assets/img/about.jpg)"];    
     //checking desktop or tablet or phone
     let typeDevice = window.navigator.userAgent;
     let typeEvent = "";
     let osLinux = typeDevice.indexOf("Linux");
     let osWindows = typeDevice.indexOf("Windows");
     let mobile = typeDevice.indexOf("Mobile");
-
-    if (!widthWindowDiveded) {
-        widthWindowDiveded = (document.body.clientWidth /11);
-    }
 
     if (osLinux) {
         typeEvent = "whell";
@@ -55,13 +49,7 @@
             for (let i = 0; i < 11; i++) {
                 let createElement = document.createElement("div");
                 createElement.setAttribute("class", "part");
-                createElement.style.width = "" + widthWindowDiveded + "px";
-                createElement.style.backgroundImage = oldSrc[item - 1];
-                createElement.style.backgroundAttachment = "fixed";
-                createElement.style.backgroundOrigin = "content-box";
-                createElement.style.backgroundPosition = "center";
-                createElement.style.backgroundRepeat = "no-repeat";
-                createElement.style.backgroundSize = "cover";
+                createElement.style.backgroundImage = oldSrc[item - 1];                
                 createOldElement.appendChild(createElement);
             }
             document.body.appendChild(createOldElement);
@@ -90,6 +78,7 @@
         }, false);
     } else {       
         document.body.addEventListener("touchend", () => {
+            
             document.body.style.backgroundImage = "url()";
             let findElem = document.querySelector(".image-div");
             let findOldElem = document.querySelector(".image-div-old");
@@ -115,13 +104,7 @@
             for (let i = 0; i < 11; i++) {
                 let createElement = document.createElement("div");
                 createElement.setAttribute("class", "part");
-                createElement.style.width = "" + widthWindowDiveded + "px";
                 createElement.style.backgroundImage = oldSrc[item - 1];
-                createElement.style.backgroundAttachment = "fixed";
-                createElement.style.backgroundOrigin = "content-box";
-                createElement.style.backgroundPosition = "center";
-                createElement.style.backgroundRepeat = "no-repeat";
-                createElement.style.backgroundSize = "cover";
                 createOldElement.appendChild(createElement);
             }
             document.body.appendChild(createOldElement);
@@ -149,13 +132,6 @@
     
         }, false);
     }
-    console.log(window);
-    window.addEventListener("orientationchange", function() {
-        
-         window.innerWidth = screen.width;
-        alert(window.innerWidth)
-        
-    });
 
     function randomSwitchHeight(elems) {
         let ements = elems;
