@@ -3,7 +3,6 @@
     let arrayImg = ["about", "skills", "projects", "socials"];
     let number = 1;
     let item = 0;
-    let numberPage = document.querySelector(".header__number-page");
     let oldSrc = ["url(./assets/img/about.jpg)"];
     //checking desktop or tablet or phone
     let typeDevice = window.navigator.userAgent;
@@ -24,56 +23,8 @@
 
     if (typeEvent === "whell") {
         document.body.addEventListener("wheel", () => {
-            document.body.style.backgroundImage = "url()";
-            let findElem = document.querySelector(".image-div");
-            let findOldElem = document.querySelector(".image-div-old");
-            if (findElem !== null && findOldElem !== null) {
-                document.body.removeChild(findElem);
-                document.body.removeChild(findOldElem);
-            }
 
-            let createElemForBG = document.createElement("div");
-            createElemForBG.setAttribute("class", "image-div");
-            createElemForBG.style.backgroundImage = `url(./assets/img/${arrayImg[number]}.jpg)`;
-            let currentSrc = createElemForBG.style.backgroundImage;
-            if (oldSrc.length == 0 && oldSrc[item] !== currentSrc) {
-                oldSrc.push(createElemForBG.style.backgroundImage);
-            } else {
-                oldSrc.push(createElemForBG.style.backgroundImage);
-                item++;
-            }
-            document.body.appendChild(createElemForBG);
-
-            let createOldElement = document.createElement("div");
-            createOldElement.setAttribute("class", "image-div-old");
-            for (let i = 0; i < 11; i++) {
-                let createElement = document.createElement("div");
-                createElement.setAttribute("class", "part");
-                createElement.style.backgroundImage = oldSrc[item - 1];
-                createOldElement.appendChild(createElement);
-            }
-            document.body.appendChild(createOldElement);
-
-            let findAllPartElement = document.querySelectorAll(".part");
-            let allPartElement = findAllPartElement;
-
-            randomSwitchHeight(allPartElement);
-
-            numberPage.innerHTML = "" + (number + 1);
-
-            if (number >= arrayImg.length - 1) {
-                number = 0;
-                if (oldSrc.length >= 5) {
-                    oldSrc = ["url(./assets/img/about.jpg)"];
-                    item = 0;
-                }
-            } else {
-                number++;
-                if (oldSrc.length >= 5) {
-                    oldSrc = ["url(./assets/img/about.jpg)"];
-                    item = 0;
-                }
-            }
+            createAnimationBackground();
 
         }, false);
     } else {
@@ -95,70 +46,70 @@
         }, false);
         document.body.addEventListener("touchend", (e) => {
             let touchobj = e.changedTouches[0];
-            console.log(touchobj)
             distX = touchobj.pageX - startX;
             distY = touchobj.pageY - startY;
-            // console.log("distx:", distX);
-            // console.log("disty:", distY);
-            // console.log("treshold", threshold);
             if (distY < 40 && distY > -50 && distX !== 0) {
 
-                document.body.style.backgroundImage = "url()";
-                let findElem = document.querySelector(".image-div");
-                let findOldElem = document.querySelector(".image-div-old");
-                if (findElem !== null && findOldElem !== null) {
-                    document.body.removeChild(findElem);
-                    document.body.removeChild(findOldElem);
-                }
-
-                let createElemForBG = document.createElement("div");
-                createElemForBG.setAttribute("class", "image-div");
-                createElemForBG.style.backgroundImage = `url(./assets/img/${arrayImg[number]}.jpg)`;
-                let currentSrc = createElemForBG.style.backgroundImage;
-                if (oldSrc.length == 0 && oldSrc[item] !== currentSrc) {
-                    oldSrc.push(createElemForBG.style.backgroundImage);
-                } else {
-                    oldSrc.push(createElemForBG.style.backgroundImage);
-                    item++;
-                }
-                document.body.appendChild(createElemForBG);
-
-                let createOldElement = document.createElement("div");
-                createOldElement.setAttribute("class", "image-div-old");
-                for (let i = 0; i < 11; i++) {
-                    let createElement = document.createElement("div");
-                    createElement.setAttribute("class", "part");
-                    createElement.style.backgroundImage = oldSrc[item - 1];
-                    createOldElement.appendChild(createElement);
-                }
-                document.body.appendChild(createOldElement);
-
-                let findAllPartElement = document.querySelectorAll(".part");
-                let allPartElement = findAllPartElement;
-
-                randomSwitchHeight(allPartElement);
-
-                numberPage.innerHTML = "" + (number + 1);
-
-                if (number >= arrayImg.length - 1) {
-                    number = 0;
-                    if (oldSrc.length >= 5) {
-                        oldSrc = ["url(./assets/img/about.jpg)"];
-                        item = 0;
-                    }
-                } else {
-                    number++;
-                    if (oldSrc.length >= 5) {
-                        oldSrc = ["url(./assets/img/about.jpg)"];
-                        item = 0;
-                    }
-                }
+                createAnimationBackground();
             }
 
             e.preventDefault();
         }, false);
     }
 
+    function createAnimationBackground() {
+        
+        document.body.style.backgroundImage = "url()";
+        let findElem = document.querySelector(".image-div");
+        let findOldElem = document.querySelector(".image-div-old");
+        if (findElem !== null && findOldElem !== null) {
+            document.body.removeChild(findElem);
+            document.body.removeChild(findOldElem);
+        }
+        
+        let createElemForBG = document.createElement("div");
+        createElemForBG.setAttribute("class", "image-div");
+        createElemForBG.style.backgroundImage = `url(./assets/img/${arrayImg[number]}.jpg)`;
+                
+        let currentSrc = createElemForBG.style.backgroundImage;
+        if (oldSrc.length == 0 && oldSrc[item] !== currentSrc) {
+            oldSrc.push(createElemForBG.style.backgroundImage);
+        } else {
+            oldSrc.push(createElemForBG.style.backgroundImage);
+            item++;
+        }
+
+        document.body.appendChild(createElemForBG);
+        
+        let createOldElement = document.createElement("div");
+        createOldElement.setAttribute("class", "image-div-old");
+        for (let i = 0; i < 11; i++) {
+            let createElement = document.createElement("div");
+            createElement.setAttribute("class", "part");
+            createElement.style.backgroundImage = oldSrc[item - 1];
+            createOldElement.appendChild(createElement);
+        }
+        document.body.appendChild(createOldElement);
+
+        let findAllPartElement = document.querySelectorAll(".part");
+        let allPartElement = findAllPartElement;
+
+        randomSwitchHeight(allPartElement);
+        
+        if (number >= arrayImg.length - 1) {
+            number = 0;
+            if (oldSrc.length >= 5) {
+                oldSrc = ["url(./assets/img/about.jpg)"];
+                item = 0;
+            }
+        } else {
+            number++;
+            if (oldSrc.length >= 5) {
+                oldSrc = ["url(./assets/img/about.jpg)"];
+                item = 0;
+            }
+        }
+    }
     function randomSwitchHeight(elems) {
         let ements = elems;
         let animate = ["pyramid", "topLeft", "topRight", "bottomPyramid"];

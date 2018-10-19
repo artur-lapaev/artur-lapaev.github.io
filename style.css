@@ -8,7 +8,7 @@ body {
     background-attachment: fixed;
     background-position: center;
     color: white;
-    font-family: 'Lora', serif; 
+    font-family: 'Teko', sans-serif;
     position: relative; 
 }
 .filter-blur-opacity {
@@ -54,39 +54,28 @@ body {
   }
   .main__content {
     width: 100%;
-    padding: 7%;
-  }
-  .content__header,
-  .content__footer {
-      height: 50%;
-      display: flex;
-      border-left: 2px solid rgba(255, 255, 255, 0.6);
-      border-right: 2px solid rgba(255, 255, 255, 0.6);
+    height: 100%;
   }
   .content__header {
-      justify-content: space-between;
-      padding-top: 15px;      
-      border-top: 2px solid rgba(255, 255, 255, 0.6);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
   }
-  .header__number-page {
-    padding-left: 15px;
-    opacity: 0.5;
+  .header__author-name,
+  .header__author-profession {
+      font-size: 5em;
+      letter-spacing: 5px;
+      line-height: 70px;
   }
-  .header__author-name {
-    font-style: italic;
-    padding-right: 15px;
+  .header__author-dev-text {
+      font-size: 7em;
+      letter-spacing: 15px
   }
-  .content__footer {
-    flex-direction: column;
-    justify-content: center;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.6);
-    padding-left: 20px;    
-    font-style: italic;
-    font-weight: bold;
-}
-.main--text-shadow {
-    text-shadow: 1px 1px 2px black;
-}
-@media screen and (min-width: 600px) {
-    .content__footer { font-size: 26px; }
+  
+@media screen and (max-width: 376px) {
+    .main__content {
+        padding: 45% 7%;
+    }
 }
