@@ -4,6 +4,12 @@
     let number = 1;
     let item = 0;
     let oldSrc = ["url(./assets/img/about.jpg)"];
+    //display block settings
+    let className = ["name-block","project-block","skills-block","contact-block"];
+    let defaultBlockShow = className[0];
+    let area = document.querySelector(".content__header");
+    area.classList.add(defaultBlockShow);
+    //////////////////////////////////////////////////////////////////////////
     //checking desktop or tablet or phone
     let typeDevice = window.navigator.userAgent;
     let typeEvent = "";
@@ -90,6 +96,8 @@
             createOldElement.appendChild(createElement);
         }
         document.body.appendChild(createOldElement);
+
+        showNextBlock(className,number);
 
         let findAllPartElement = document.querySelectorAll(".part");
         let allPartElement = findAllPartElement;
@@ -217,4 +225,12 @@
 
     }
 
+    function showNextBlock(className, item) {
+        if (area.classList[1] === "contact-block") {
+            area.classList.remove(className[3]);
+        } else {
+            area.classList.remove(className[item-1]);
+        }        
+        area.classList.add(className[item]);
+    }
 }());
