@@ -4,11 +4,12 @@
     let number = 1;
     let item = 0;
     let oldSrc = ["url(./assets/img/about.jpg)"];
-    //display block settings
-    let className = ["name-block","project-block","skills-block","contact-block"];
+    //display block settings by defaulting
+    let className = ["name-block", "project-block", "skills-block", "contact-block"];
     let defaultBlockShow = className[0];
     let area = document.querySelector(".content__header");
     area.classList.add(defaultBlockShow);
+    generateBlock('', true);
     //////////////////////////////////////////////////////////////////////////
     //checking desktop or tablet or phone
     let typeDevice = window.navigator.userAgent;
@@ -64,7 +65,7 @@
     }
 
     function createAnimationBackground() {
-        
+
         document.body.style.backgroundImage = "url()";
         let findElem = document.querySelector(".image-div");
         let findOldElem = document.querySelector(".image-div-old");
@@ -72,11 +73,11 @@
             document.body.removeChild(findElem);
             document.body.removeChild(findOldElem);
         }
-        
+
         let createElemForBG = document.createElement("div");
         createElemForBG.setAttribute("class", "image-div");
         createElemForBG.style.backgroundImage = `url(./assets/img/${arrayImg[number]}.jpg)`;
-                
+
         let currentSrc = createElemForBG.style.backgroundImage;
         if (oldSrc.length == 0 && oldSrc[item] !== currentSrc) {
             oldSrc.push(createElemForBG.style.backgroundImage);
@@ -86,7 +87,7 @@
         }
 
         document.body.appendChild(createElemForBG);
-        
+
         let createOldElement = document.createElement("div");
         createOldElement.setAttribute("class", "image-div-old");
         for (let i = 0; i < 11; i++) {
@@ -97,13 +98,14 @@
         }
         document.body.appendChild(createOldElement);
 
-        showNextBlock(className,number);
+        showNextBlock(className, number);
+        generateBlock(className[number], false);
 
         let findAllPartElement = document.querySelectorAll(".part");
         let allPartElement = findAllPartElement;
 
         randomSwitchHeight(allPartElement);
-        
+
         if (number >= arrayImg.length - 1) {
             number = 0;
             if (oldSrc.length >= 5) {
@@ -229,8 +231,149 @@
         if (area.classList[1] === "contact-block") {
             area.classList.remove(className[3]);
         } else {
-            area.classList.remove(className[item-1]);
-        }        
+            area.classList.remove(className[item - 1]);
+        }
         area.classList.add(className[item]);
+    }
+    function generateBlock(className, setDefault) {
+        let classNameNameBlock = ["header__author-name", "header__author-profession", "header__author-dev-text"];
+        let textDataNameBlock = ["ARTUR LAPAEV", "FRONT-END", "DevelopeR"];
+
+        if (setDefault === true) {
+            for (let i = 0; i < classNameNameBlock.length; i++) {
+                let elem = document.createElement("div");
+                elem.classList.add(classNameNameBlock[i]);
+                if (i === 2) {
+                    for (let s = 0; s < textDataNameBlock[i].length; s++) {
+                        let element = document.createElement("div");
+                        let randomDelayForRotateAnimation = Math.floor(Math.random() * (8 - 0)) + 0;
+                        element.innerHTML = textDataNameBlock[i].charAt(s);
+                        element.style.animationDelay = "" + randomDelayForRotateAnimation + "s";
+                        elem.appendChild(element);
+                    }
+
+                    setInterval(function () {
+                        for (let a = 0; a != elem.childNodes.length;) {
+                            elem.removeChild(elem.childNodes[a]);
+                        }
+                        for (let s = 0; s < textDataNameBlock[i].length; s++) {
+                        let element = document.createElement("div");
+                        let randomDelayForRotateAnimation = Math.floor(Math.random() * (8 - 0)) + 0;
+                        element.innerHTML = textDataNameBlock[i].charAt(s);
+                        element.style.animationDelay = "" + randomDelayForRotateAnimation + "s";
+                        elem.appendChild(element);
+                    }
+                    }, 4000);
+
+                } else {
+                    elem.innerHTML = textDataNameBlock[i];
+                }
+                area.appendChild(elem);
+            }
+        } else {
+            for (let i = 0; i != area.childNodes.length;) {
+                area.removeChild(area.childNodes[i]);
+            }
+        }
+
+        switch (className) {
+            case "name-block": {
+                generateBlock('', true);
+            }
+                break;
+            case "project-block": {
+                let classNameProjectBlock = ["project-caption",
+                    { className: "bananaBEM", link: "https://bananabem-7967d.firebaseapp.com/", nameProject: "bananaBEM" }
+                ];
+                let containerBlock = document.createElement("div");
+                containerBlock.classList.add("header__project");
+                area.appendChild(containerBlock);
+
+                for (let i = 0; i < classNameProjectBlock.length; i++) {
+                    let elem = document.createElement("div");
+                    let linkElem = document.createElement("a");
+                    let textElem = document.createElement("div");
+                    if (i !== 0) {
+                        elem.classList.add("container__project");
+                        elem.classList.add(classNameProjectBlock[i].className);
+                        linkElem.setAttribute("href", classNameProjectBlock[i].link);
+                        linkElem.setAttribute("target", "_blank");
+                        linkElem.innerHTML = classNameProjectBlock[i].nameProject
+                        elem.classList.add(classNameProjectBlock[i].className);
+                        textElem.classList.add("text-hover");
+
+                        textElem.appendChild(linkElem);
+                        elem.appendChild(textElem);
+                    } else {
+                        elem.classList.add(classNameProjectBlock[i]);
+                    }
+
+                    containerBlock.appendChild(elem);
+                }
+                containerBlock.childNodes[0].innerHTML = "PROJECTS: ";
+            }
+                break;
+            case "skills-block": {
+                let classNameSkillsBlock = ["skills-caption", "angular", "css", "html", "js", "git", "nodejs"];
+                let containerBlock = document.createElement("div");
+                containerBlock.classList.add("header__skills");
+                area.appendChild(containerBlock);
+
+                for (let i = 0; i < classNameSkillsBlock.length; i++) {
+                    let elem = document.createElement("div");
+                    if (i !== 0) {
+                        elem.classList.add("skills-icon");
+                    }
+                    elem.classList.add(classNameSkillsBlock[i]);
+                    containerBlock.appendChild(elem);
+                }
+                containerBlock.childNodes[0].innerHTML = "Work with:";
+
+            }
+                break;
+            case "contact-block": {
+                let classNameContactBlock = ["contact-caption",
+                    { className: "vk", link: "https://vk.com/id183164093" },
+                    { className: "skype", link: "skype:artur.lapaev?add" },
+                    { className: "google", link: "mailto:mr.sed1337@gmail.com" },
+                    { className: "linkedin", link: "https://www.linkedin.com/in/artur-lapaev-b88a07134/" },
+                    { className: "github", link: "https://github.com/artur-lapaev" },
+                ];
+                if (osLinux > 0) {
+                    for (let i = 0; i < classNameContactBlock.length; i++) {
+                        if (typeof (classNameContactBlock[i]) === "object" && classNameContactBlock[i].className === "google" || classNameContactBlock[i].className === "mail") {
+                            classNameContactBlock[i].link = "event";
+                        }
+                    }
+                }
+                let containerBlock = document.createElement("div");
+                containerBlock.classList.add("header__contact");
+                area.appendChild(containerBlock);
+
+                for (let i = 0; i < classNameContactBlock.length; i++) {
+                    let elem = document.createElement("div");
+                    let linkElem = document.createElement("a");
+                    if (i !== 0) {
+                        elem.classList.add("contact-icon");
+                        elem.classList.add(classNameContactBlock[i].className);
+
+                        if (typeof (classNameContactBlock[i]) === "object" && classNameContactBlock[i].link === "event") {
+                            linkElem.addEventListener("click", () => {
+                                alert('You use linux system, copy my email: mr.sed1337@gmail.com');
+                            }, false);
+                        } else {
+                            linkElem.setAttribute("href", classNameContactBlock[i].link);
+                        }
+                        elem.appendChild(linkElem);
+                    } else {
+                        elem.classList.add(classNameContactBlock[i]);
+                    }
+
+                    containerBlock.appendChild(elem);
+                }
+                containerBlock.childNodes[0].innerHTML = "My contacts:";
+            }
+                break;
+        }
     }
 }());
