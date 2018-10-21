@@ -193,15 +193,16 @@ body {
   }
  .skills-icon,
  .contact-icon {
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
     background-position: center center;
     background-size: cover;
     margin: 15px;
     transform: scale(1);
     transition: 0.3s transform;
  }
- .contact-icon:hover { cursor: pointer; transform: scale(1.5)}
+ .contact-icon:hover,
+ .skills-icon:hover { cursor: pointer; transform: scale(1.5)}
  .contact-icon a {display: block; width: inherit; height: inherit;}
  .angular { background-image: url(./assets/img/icon/angular.png); }
  .css { background-image: url(./assets/img/icon/css.png); }
@@ -256,6 +257,13 @@ body {
       font-size: 3em;
   }
 }
+@media screen and (max-width: 667px) {
+    .message__text { font-size: 1em; }
+    .skills-caption {
+        height: 100px;
+        margin-top: 30px;
+    }
+}
 @media screen and (max-width: 570px) {
     .project-caption {
         font-size: 2.5em;
@@ -264,6 +272,10 @@ body {
         width: 80px;
         height: 80px;
     }
+    
+}
+@media screen and (max-width:540px) {
+    .contact-caption { height: 100px; }
 }
 @media screen and (max-width: 360px) {
     .header__author-name,

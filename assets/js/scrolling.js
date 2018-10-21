@@ -65,8 +65,11 @@
     }
 
     function createAnimationBackground() {
+
         let deletePopup = document.querySelector(".popup__message");
-        document.body.removeChild(deletePopup);
+        if (deletePopup) {
+            document.body.removeChild(deletePopup);
+        }
 
         document.body.style.backgroundImage = "url()";
         let findElem = document.querySelector(".image-div");
@@ -259,12 +262,12 @@
                             elem.removeChild(elem.childNodes[a]);
                         }
                         for (let s = 0; s < textDataNameBlock[i].length; s++) {
-                        let element = document.createElement("div");
-                        let randomDelayForRotateAnimation = Math.floor(Math.random() * (8 - 0)) + 0;
-                        element.innerHTML = textDataNameBlock[i].charAt(s);
-                        element.style.animationDelay = "" + randomDelayForRotateAnimation + "s";
-                        elem.appendChild(element);
-                    }
+                            let element = document.createElement("div");
+                            let randomDelayForRotateAnimation = Math.floor(Math.random() * (8 - 0)) + 0;
+                            element.innerHTML = textDataNameBlock[i].charAt(s);
+                            element.style.animationDelay = "" + randomDelayForRotateAnimation + "s";
+                            elem.appendChild(element);
+                        }
                     }, 4000);
 
                 } else {
