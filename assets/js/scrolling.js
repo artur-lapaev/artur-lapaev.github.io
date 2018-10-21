@@ -65,6 +65,8 @@
     }
 
     function createAnimationBackground() {
+        let deletePopup = document.querySelector(".popup__message");
+        document.body.removeChild(deletePopup);
 
         document.body.style.backgroundImage = "url()";
         let findElem = document.querySelector(".image-div");

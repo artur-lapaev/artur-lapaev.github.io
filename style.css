@@ -11,6 +11,37 @@ body {
     font-family: 'Teko', sans-serif;
     position: relative; 
 }
+.popup__message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: #222;
+    opacity: 0;
+    position: absolute;
+    z-index: 6;
+    animation-name: showpopup;
+    animation-duration: 9s;    
+}
+@keyframes showpopup {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.95;
+    }
+    90% {
+        opacity: 0;
+    }
+    100% {
+        display: none;
+    }
+}
+.message__text {
+    color: #fff;
+    font-size: 3em;    
+}
 .filter-blur-opacity {
     height: 100vh;
     width: 100%;
@@ -74,7 +105,6 @@ body {
       letter-spacing: 15px;
   }
   .header__author-dev-text div {
-      /* animation-delay: 3s; */
       animation-duration: 0.5s;
       animation-name: rotateLetter;
   }
